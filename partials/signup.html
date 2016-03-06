@@ -1,0 +1,51 @@
+	<div class="alert alert-danger" ng-show="alertMessage">
+        {{alertMessage}}
+      </div>
+
+      <div class="alert alert-success" ng-show="message">
+        {{message}}
+      </div>
+
+      <form class="form-signin">
+          <h2 class="form-signin-heading">Please sign up</h2>
+
+          <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="createUserData.email" required autofocus>
+          </div>
+          
+          <div class="form-group">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="createUserData.password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword" class="sr-only">Confirm Password</label>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" ng-model="createUserData.confirmPassword" >
+            <div ng-messages="registrationForm.confirmPassword.$error" ng-messages-include="messages.html"></div>
+          </div>
+             
+          <div class="form-group">
+            <label for="selectProfile" class="sr-only">Slect Profile</label>
+            <select class="form-control" name="selectProfile" id="selectProfile" ng-model="createUserData.profile" required>
+          <option value=""> Select a profile </option>
+          <option value="Earner">Earner</option>
+          <option value="Employer">Employer</option>
+          <option value="Agency">Agency</option>
+        </select>
+            
+          </div>
+
+          <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="createUser(createUserData)">
+            <span ng-hide="submitting">
+              Sign up 
+            </span>
+               
+            <span ng-show="submitting">
+               Signing up
+               <i class="fa fa-spinner fa-spin"></i>
+            </span>
+          </button>
+      </form>
+
+   </div>
